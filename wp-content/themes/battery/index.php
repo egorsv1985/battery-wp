@@ -8,12 +8,8 @@ get_header(); ?>
 	<section class="screen1">
 		<div class="screen1__container">
 			<div class="screen1__wrapper">
-				<?
-				$title = get_field('title'); // Здесь 'title' - это имя поля ACF
-				$text = get_field('text'); // Здесь 'text' - это имя другого поля ACF
-				?>
-				<h1 class="screen1__maintitle">Recycling Electric Batteries<?php the_field('title'); ?> <?php echo esc_html($title); ?></h1>
-				<p class="screen1__text">Recycling Electric Batteries is a goal-driven company moved by our purpose, guided by values and determination to deliver what we promise and guarantee to all of our customers.<?php the_field('text'); ?> <?php echo esc_html($text); ?></p>
+				<h1 class="screen1__maintitle">Recycling Electric Batteries<?php the_field('title'); ?> </h1>
+				<p class="screen1__text">Recycling Electric Batteries is a goal-driven company moved by our purpose, guided by values and determination to deliver what we promise and guarantee to all of our customers.<?php the_field('text'); ?> </p>
 				<div class="screen1__button button button_fill">
 					<a href="contact.html" class="button__text">contact us</a>
 				</div>
@@ -36,11 +32,36 @@ get_header(); ?>
 					<?php the_field('subtitle'); ?>Why is battery recycling so crucial?
 				</h2>
 				<p class="good-question__text">
-					In actuality, each individual in the USA consumes 50 batteries a
+					<?php the_field('text'); ?>In actuality, each individual in the USA consumes 50 batteries a
 					year!
 				</p>
 			</div>
 			<div class="good__item good-answers">
+				<?php
+				$args = array(
+					'post_type' => 'post',  // Укажите здесь тип вашей записи, если это не посты
+					'category_name' => 'answers', // Укажите здесь название рубрики "answers"
+					'posts_per_page' => -1  // Укажите, сколько записей вы хотите вывести, -1 для всех записей
+				);
+
+				$query = new WP_Query($args);
+
+				if ($query->have_posts()) :
+					while ($query->have_posts()) : $query->the_post();
+				?>
+						<div class="good-answers__item good-answer">
+							<div class="good-answer__subtitle"><?php the_title(); ?></div>
+							<div class="good-answer__text"><?php the_content(); ?></div>
+							<a href="<?php the_permalink(); ?>" class="good-answer__link"></a>
+						</div>
+				<?php
+					endwhile;
+				endif;
+				wp_reset_postdata();
+				?>
+			</div>
+
+			<!-- <div class="good__item good-answers">
 				<div class="good-answers__item good-answer">
 					<h2 class="good-answer__subtitle">Recycling</h2>
 					<p class="good-answer__text">
@@ -49,14 +70,14 @@ get_header(); ?>
 					<a href="aboutUs.html" class="good-answer__link"></a>
 				</div>
 				<div class="good-answers__item good-answer">
-					<h3 class="good-answer__subtitle">Each battery</h3>
+					<h2 class="good-answer__subtitle">Each battery</h2>
 					<p class="good-answer__text">
 						will be disassembled, and the components will be repurposed to
 						create new products.
 					</p>
 					<a href="aboutUs.html" class="good-answer__link"></a>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</section>
 
