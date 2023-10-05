@@ -25,20 +25,22 @@
 					<? bloginfo('name'); ?>
 				</a>
 			<? endif; ?>
-			<nav class="header__menu menu col-12 position-relative">
-            <?php
-            $menu_items = wp_get_nav_menu_items('Primary Menu');
-            if ($menu_items) {
-              echo '<ul class="menu__list d-flex h-100 flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-between text-nowrap ps-0 gap-3">';
-              foreach ($menu_items as $item) {
-                echo '<li class="menu__item d-flex justify-content-center">';
-                echo '<a href="' . $item->url . '" class="menu__link d-inline-block">' . $item->title . '</a>';
-                echo '</li>';
-              }
-              echo '</ul>';
-            }
-            ?>
-          </nav>
+
+			<nav class="header__nav nav">
+				<?php
+				// Определяем, какое меню использовать (по его названию)
+				$primary_menu = wp_nav_menu(
+					array(
+						'theme_location' => 'primary-menu',
+						'echo' => false, // Не выводить меню на экран, только получить его HTML
+					)
+				);
+
+				// Выводим меню
+				echo $primary_menu;
+				?>
+			</nav>
+
 			<div class="header__button button button_fill">
 				<a href="contact.html" class="button__text">General Inquiries</a>
 			</div>
@@ -47,21 +49,28 @@
 					<a href="#" class="burger-button">
 						<span></span>
 					</a>
-					<nav class="header__menu menu col-12 position-relative">
-            <?php
-            $menu_items = wp_get_nav_menu_items('Primary Menu');
-            if ($menu_items) {
-              echo '<ul class="menu__list d-flex h-100 flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-between text-nowrap ps-0 gap-3">';
-              foreach ($menu_items as $item) {
-                echo '<li class="menu__item d-flex justify-content-center">';
-                echo '<a href="' . $item->url . '" class="menu__link d-inline-block">' . $item->title . '</a>';
-                echo '</li>';
-              }
-              echo '</ul>';
-            }
-            ?>
-          </nav>
+
+					<nav class="burger__nav nav-burger">
+						<?php
+						// Определяем, какое меню использовать (по его названию)
+						$primary_menu = wp_nav_menu(
+							array(
+								'theme_location' => 'primary-menu',
+								'echo' => false, // Не выводить меню на экран, только получить его HTML
+							)
+						);
+
+						// Выводим меню
+						echo $primary_menu;
+						?>
+						<div class="nav__button button button_border">
+							<a href="contact.html" class="button__text">General Inquiries</a>
+						</div>
+					</nav>
+
 				</div>
 			</div>
 		</div>
 	</header>
+
+	<div class="menu-background"></div>
