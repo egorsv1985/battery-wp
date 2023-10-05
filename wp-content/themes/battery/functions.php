@@ -94,20 +94,25 @@ function register_custom_menus()
 	);
 }
 add_action('init', 'register_custom_menus');
-function custom_menu_classes($classes, $item) {
-    // Добавляем кастомные классы для родительского элемента меню
-    if ($item->menu_item_parent == 0 && in_array('menu-item-has-children', $classes)) {
-        $classes[] = 'nav__uncover';
-    }
+function custom_menu_classes($classes, $item)
+{
+	// Добавляем кастомные классы для родительского элемента меню
+	if ($item->menu_item_parent == 0 && in_array('menu-item-has-children', $classes)) {
+		$classes[] = 'nav__uncover';
+	}
 
-    // Добавляем кастомные классы для дочерних элементов меню
-    if ($item->menu_item_parent != 0) {
-        $classes[] = 'second-nav__item';
-    }
+	// Добавляем кастомные классы для дочерних элементов меню
+	if ($item->menu_item_parent != 0) {
+		$classes[] = 'second-nav__item';
+	}
 
-    return $classes;
+	return $classes;
 }
 add_filter('nav_menu_css_class', 'custom_menu_classes', 10, 2);
 
-
-
+function allow_svg_upload($mimes)
+{
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter('upload_mimes', 'allow_svg_upload');

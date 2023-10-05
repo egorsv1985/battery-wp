@@ -80,6 +80,78 @@ get_header(); ?>
 			</div> -->
 		</div>
 	</section>
+	<section class="goals scroll">
+		<div class="goals__container">
+			<h2 class="goals__title title_center">Our goals</h2>
+			<div class="goals__icons icons">
+				<?php
+				$args = array(
+					'post_type' => 'post',  // Укажите здесь тип вашей записи, если это не посты
+					'category_name' => 'goals', // Укажите здесь название рубрики "goals"
+					'posts_per_page' => -1  // Укажите, сколько записей вы хотите вывести, -1 для всех записей
+				);
 
+				$query = new WP_Query($args);
 
+				if ($query->have_posts()) :
+					while ($query->have_posts()) : $query->the_post();
+				?>
+						<div class="icons__item item-icon scroll">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/icons/icon1.svg" alt="" class="item-icons__icon" />
+							<div class="item-icon__subtitle"><?php the_title(); ?></div>
+							<div class="item-icon__text"> <?php the_content(); ?> </div>
+						</div>
+
+				<?php
+					endwhile;
+				endif;
+				wp_reset_postdata();
+				?>
+				<!-- <div class="icons__item item-icon scroll">
+              <img src="./img/icon1.svg" alt="" class="item-icons__icon" />
+              <h3 class="item-icon__subtitle">Our today’s output</h3>
+              <p class="item-icon__text">
+                must be better than yesterday, and tomorrow has to be better
+                than today
+              </p>
+            </div>
+            <div class="icons__item item-icon scroll">
+              <img src="./img/icon2.svg" alt="" class="item-icons__icon" />
+              <h3 class="item-icon__subtitle">We are committed</h3>
+              <p class="item-icon__text">
+                to treat our associates, suppliers and customers respectfully
+              </p>
+            </div>
+            <div class="icons__item item-icon scroll">
+              <img src="./img/icon3.svg" alt="" class="item-icons__icon" />
+              <h3 class="item-icon__subtitle">Every person</h3>
+              <p class="item-icon__text">
+                in the organization must put in the shoes of project owner and
+                end-users
+              </p>
+            </div>
+            <div class="icons__item item-icon scroll">
+              <img src="./img/icon4.svg" alt="" class="item-icons__icon" />
+              <h3 class="item-icon__subtitle">Yet each of us</h3>
+              <p class="item-icon__text">
+                always willing to learn a new knowledge and skills
+              </p>
+            </div>
+            <div class="icons__item item-icon scroll">
+              <img src="./img/icon5.svg" alt="" class="item-icons__icon" />
+              <h3 class="item-icon__subtitle">Team work</h3>
+              <p class="item-icon__text">
+                is the way we carry out business processes
+              </p>
+            </div>
+            <div class="icons__item item-icon scroll">
+              <img src="./img/icon6.svg" alt="" class="item-icons__icon" />
+              <h3 class="item-icon__subtitle">All we do</h3>
+              <p class="item-icon__text">
+                is to fulfill our customer’s need and wants
+              </p>
+            </div> -->
+			</div>
+		</div>
+	</section>
 </main>
