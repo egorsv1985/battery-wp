@@ -265,7 +265,7 @@ textarea {
   
 }
 
-.menu__item {
+.menu-item a {
   font-size: 1.8rem;
   text-decoration: none;
   color: #1b1b1b;
