@@ -155,15 +155,128 @@ get_header(); ?>
 		</div>
 	</section>
 	<section class="proposal">
-        <div class="proposal__content">
-          <p class="proposal__title">Start Recycling Now</p>
-          <p class="proposal__text">
-            Recycle With Recycling Electric Batteries And Make Your Environment
-            A Better Place To Live In
-          </p>
-          <div class="proposal__button button button_border">
-            <a href="contact.html" class="button__text">contact us</a>
-          </div>
-        </div>
-      </section>
+		<div class="proposal__content">
+			<p class="proposal__title">Start Recycling Now</p>
+			<p class="proposal__text">
+				Recycle With Recycling Electric Batteries And Make Your Environment
+				A Better Place To Live In
+			</p>
+			<div class="proposal__button button button_border">
+				<a href="contact.html" class="button__text">contact us</a>
+			</div>
+		</div>
+	</section>
+	<section class="ustobeus ustobeus_back scroll">
+		<div class="ustobeus__container">
+			<div class="scene">
+				<div data-depth="0.6">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/new_planet.svg" alt="" class="ustobeus__img" />
+				</div>
+			</div>
+			<div class="ustobeus__content">
+				<h2 class="ustobeus__title">That what makes us to be us</h2>
+				<div class="ustobeus__facts">
+					<div class="ustobeus__fact fact">
+						<p class="fact__description">has over</p>
+						<div class="fact__content">
+							<p class="fact__number">10</p>
+							<p class="fact__text">Years of Experience</p>
+						</div>
+					</div>
+					<div class="ustobeus__fact fact">
+						<p class="fact__description">deal with</p>
+						<div class="fact__content">
+							<p class="fact__number">1k</p>
+							<p class="fact__text">
+								Electric Batteries On Different Types
+							</p>
+						</div>
+					</div>
+				</div>
+				<p class="ustobeus__text">
+					We want to provide you with all the resources you need to
+					confidently recycle your battery/cells.
+				</p>
+				<p class="ustobeus__text">
+					Learn more about our expertise and how we can help you make this
+					world just a little bit greener. Feel free to contact us if you
+					have any questions.
+				</p>
+				<div class="ustobeus__button button button_fill">
+					<a href="aboutUs.html" class="button__text">Learn more</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="weworkwith scroll">
+		<div class="weworkwith__container">
+			<h2 class="weworkwith__title">We work with</h2>
+			<p class="weworkwith__text">
+				Our priority is offering quality service and solutions to our
+				customers. We are dedicated to providing a variety of ways to invest
+				in environmentally safe battery recycling.
+			</p>
+			<div class="weworkwith__cards cards">
+				<div class="cards__column">
+					<div class="cards__item card">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork1.svg" alt="" class="card__icon" />
+						<div class="card__content">
+							<h3 class="card__subtitle">Business Owners</h3>
+							<p class="card__text">
+								Recycling Electric batteries work with business owners all
+								over the US. We serve business owners to combat their common
+								problem to disposing.
+							</p>
+							<a href="templatePage.html" class="card__link"></a>
+						</div>
+					</div>
+					<div class="cards__item card">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork2.svg" alt="" class="card__icon" />
+						<div class="card__content">
+							<h3 class="card__subtitle">Manufacturers</h3>
+							<p class="card__text">
+								We work collectively with top manufactures to guarantee safe
+								recycling and strive to create our environment a better
+								place to live in.
+							</p>
+							<a href="" class="card__link"></a>
+						</div>
+					</div>
+				</div>
+				<div class="cards__item card">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork3.svg" alt="" class="card__icon" />
+					<div class="card__content">
+						<h3 class="card__subtitle">Salvage Yards</h3>
+						<p class="card__text">
+							Recycling Electric batteries work with business owners all
+							over the US.
+						</p>
+						<a href="" class="card__link card__link_up"></a>
+					</div>
+				</div>
+				<div class="cards__item card">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork4.svg" alt="" class="card__icon" />
+					<div class="card__content">
+						<h3 class="card__subtitle">Refurbishers</h3>
+						<p class="card__text">
+							Recycling Electric batteries work with business owners all
+							over the US.
+						</p>
+						<a href="" class="card__link card__link_up"></a>
+					</div>
+				</div>
+				<div class="cards__item card">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork5.svg" alt="" class="card__icon" />
+					<div class="card__content">
+						<h3 class="card__subtitle">Recycling Facilities</h3>
+						<p class="card__text">
+							Recycling Electric batteries work with business owners all
+							over the US.
+						</p>
+						<a href="" class="card__link card__link_up"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
