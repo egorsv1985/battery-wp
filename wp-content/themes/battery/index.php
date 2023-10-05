@@ -8,8 +8,8 @@ get_header(); ?>
 	<section class="screen1">
 		<div class="screen1__container">
 			<div class="screen1__wrapper">
-				<h1 class="screen1__maintitle">Recycling Electric Batteries<?php the_field('title'); ?> </h1>
-				<p class="screen1__text">Recycling Electric Batteries is a goal-driven company moved by our purpose, guided by values and determination to deliver what we promise and guarantee to all of our customers.<?php the_field('text'); ?> </p>
+				<h1 class="screen1__maintitle">Recycling Electric Batteries<?php the_field('screen_title'); ?> </h1>
+				<div class="screen1__text">Recycling Electric Batteries is a goal-driven company moved by our purpose, guided by values and determination to deliver what we promise and guarantee to all of our customers.<?php the_field('screen_text'); ?> </div>
 				<div class="screen1__button button button_fill">
 					<a href="contact.html" class="button__text">contact us</a>
 				</div>
@@ -29,12 +29,12 @@ get_header(); ?>
 		<div class="good__container">
 			<div class="good__item good-question">
 				<h2 class="good-question__subtitle">
-					<?php the_field('subtitle'); ?>Why is battery recycling so crucial?
+					<?php the_field('good_subtitle'); ?>Why is battery recycling so crucial?
 				</h2>
-				<p class="good-question__text">
-					<?php the_field('text'); ?>In actuality, each individual in the USA consumes 50 batteries a
+				<div class="good-question__text">
+					<?php the_field('good_text'); ?>In actuality, each individual in the USA consumes 50 batteries a
 					year!
-				</p>
+				</div>
 			</div>
 			<div class="good__item good-answers">
 				<?php
@@ -154,4 +154,16 @@ get_header(); ?>
 			</div>
 		</div>
 	</section>
+	<section class="proposal">
+        <div class="proposal__content">
+          <p class="proposal__title">Start Recycling Now</p>
+          <p class="proposal__text">
+            Recycle With Recycling Electric Batteries And Make Your Environment
+            A Better Place To Live In
+          </p>
+          <div class="proposal__button button button_border">
+            <a href="contact.html" class="button__text">contact us</a>
+          </div>
+        </div>
+      </section>
 </main>
