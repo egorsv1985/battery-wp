@@ -8,8 +8,8 @@ get_header(); ?>
 	<section class="screen1">
 		<div class="screen1__container">
 			<div class="screen1__wrapper">
-				<h1 class="screen1__maintitle">Recycling Electric Batteries<?php the_field('screen_title'); ?> </h1>
-				<div class="screen1__text">Recycling Electric Batteries is a goal-driven company moved by our purpose, guided by values and determination to deliver what we promise and guarantee to all of our customers.<?php the_field('screen_text'); ?> </div>
+				<h1 class="screen1__maintitle"><?php echo get_field('screen_title'); ?> </h1>
+				<div class="screen1__text"><?php the_field('screen_text'); ?> </div>
 				<div class="screen1__button button button_fill">
 					<a href="contact.html" class="button__text">contact us</a>
 				</div>
@@ -29,11 +29,10 @@ get_header(); ?>
 		<div class="good__container">
 			<div class="good__item good-question">
 				<h2 class="good-question__subtitle">
-					<?php the_field('good_subtitle'); ?>Why is battery recycling so crucial?
+					<?php the_field('good_subtitle'); ?>
 				</h2>
 				<div class="good-question__text">
-					<?php the_field('good_text'); ?>In actuality, each individual in the USA consumes 50 batteries a
-					year!
+					<?php the_field('good_text'); ?>
 				</div>
 			</div>
 			<div class="good__item good-answers">
@@ -82,7 +81,7 @@ get_header(); ?>
 	</section>
 	<section class="goals scroll">
 		<div class="goals__container">
-			<h2 class="goals__title title_center">Our goals</h2>
+			<h2 class="goals__title title_center"><?php echo get_field('goals_title'); ?></h2>
 			<div class="goals__icons icons">
 				<?php
 				$args = array(
@@ -97,7 +96,7 @@ get_header(); ?>
 					while ($query->have_posts()) : $query->the_post();
 				?>
 						<div class="icons__item item-icon scroll">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/icons/icon1.svg" alt="" class="item-icons__icon" />
+							<img src="<?php the_field('icon'); ?>" alt="<?php echo the_title(); ?>" class="item-icons__icon" />
 							<div class="item-icon__subtitle"><?php the_title(); ?></div>
 							<div class="item-icon__text"> <?php the_content(); ?> </div>
 						</div>
@@ -156,31 +155,55 @@ get_header(); ?>
 	</section>
 	<section class="proposal">
 		<div class="proposal__content">
-			<p class="proposal__title">Start Recycling Now</p>
-			<p class="proposal__text">
-				Recycle With Recycling Electric Batteries And Make Your Environment
-				A Better Place To Live In
-			</p>
+			<div class="proposal__title"><?php echo get_field('proposal_title'); ?></div>
+			<div class="proposal__text">
+				<?php echo get_field('proposal_text'); ?>
+			</div>
 			<div class="proposal__button button button_border">
 				<a href="contact.html" class="button__text">contact us</a>
 			</div>
 		</div>
 	</section>
+
 	<section class="ustobeus ustobeus_back scroll">
 		<div class="ustobeus__container">
 			<div class="scene">
 				<div data-depth="0.6">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/new_planet.svg" alt="" class="ustobeus__img" />
+					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/new_planet.svg" alt="<?php echo get_field('proposal_title'); ?>" class="ustobeus__img" />
 				</div>
 			</div>
 			<div class="ustobeus__content">
-				<h2 class="ustobeus__title">That what makes us to be us</h2>
+				<h2 class="ustobeus__title"><?php echo get_field('ustobeus_title'); ?></h2>
 				<div class="ustobeus__facts">
-					<div class="ustobeus__fact fact">
-						<p class="fact__description">has over</p>
+					<?php
+					$args = array(
+						'post_type' => 'post',  // Укажите здесь тип вашей записи, если это не посты
+						'category_name' => 'ustobeus', // Укажите здесь название рубрики "goals"
+						'posts_per_page' => -1  // Укажите, сколько записей вы хотите вывести, -1 для всех записей
+					);
+
+					$query = new WP_Query($args);
+
+					if ($query->have_posts()) :
+						while ($query->have_posts()) : $query->the_post();
+					?>
+							<div class="ustobeus__fact fact">
+								<div class="fact__description"><?php echo get_field('ustobeus_direction'); ?></div>
+								<div class="fact__content">
+									<div class="fact__number"><?php the_title(); ?></div>
+									<div class="fact__text"><?php the_content(); ?></div>
+								</div>
+							</div>
+					<?php
+						endwhile;
+					endif;
+					wp_reset_postdata();
+					?>
+					<!-- <div class="ustobeus__fact fact">
+						<div class="fact__description">has over</div>
 						<div class="fact__content">
-							<p class="fact__number">10</p>
-							<p class="fact__text">Years of Experience</p>
+							<div class="fact__number">10</div>
+							<div class="fact__text">Years of Experience</div>
 						</div>
 					</div>
 					<div class="ustobeus__fact fact">
@@ -191,17 +214,11 @@ get_header(); ?>
 								Electric Batteries On Different Types
 							</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
-				<p class="ustobeus__text">
-					We want to provide you with all the resources you need to
-					confidently recycle your battery/cells.
-				</p>
-				<p class="ustobeus__text">
-					Learn more about our expertise and how we can help you make this
-					world just a little bit greener. Feel free to contact us if you
-					have any questions.
-				</p>
+				<div class="ustobeus__text">
+					<?php echo get_field('ustobeus_text'); ?>
+				</div>
 				<div class="ustobeus__button button button_fill">
 					<a href="aboutUs.html" class="button__text">Learn more</a>
 				</div>
@@ -210,73 +227,89 @@ get_header(); ?>
 	</section>
 	<section class="weworkwith scroll">
 		<div class="weworkwith__container">
-			<h2 class="weworkwith__title">We work with</h2>
-			<p class="weworkwith__text">
-				Our priority is offering quality service and solutions to our
-				customers. We are dedicated to providing a variety of ways to invest
-				in environmentally safe battery recycling.
-			</p>
+			<h2 class="weworkwith__title"><?php echo get_field('weworkwith_title'); ?></h2>
+			<div class="weworkwith__text">
+				<?php echo get_field('weworkwith_text'); ?>
+			</div>
 			<div class="weworkwith__cards cards">
-				<div class="cards__column">
-					<div class="cards__item card">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork1.svg" alt="" class="card__icon" />
-						<div class="card__content">
-							<h3 class="card__subtitle">Business Owners</h3>
-							<p class="card__text">
-								Recycling Electric batteries work with business owners all
-								over the US. We serve business owners to combat their common
-								problem to disposing.
-							</p>
-							<a href="templatePage.html" class="card__link"></a>
-						</div>
-					</div>
-					<div class="cards__item card">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork2.svg" alt="" class="card__icon" />
-						<div class="card__content">
-							<h3 class="card__subtitle">Manufacturers</h3>
-							<p class="card__text">
-								We work collectively with top manufactures to guarantee safe
-								recycling and strive to create our environment a better
-								place to live in.
-							</p>
-							<a href="" class="card__link"></a>
-						</div>
-					</div>
-				</div>
-				<div class="cards__item card">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork3.svg" alt="" class="card__icon" />
-					<div class="card__content">
-						<h3 class="card__subtitle">Salvage Yards</h3>
-						<p class="card__text">
-							Recycling Electric batteries work with business owners all
-							over the US.
-						</p>
-						<a href="" class="card__link card__link_up"></a>
-					</div>
-				</div>
-				<div class="cards__item card">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork4.svg" alt="" class="card__icon" />
-					<div class="card__content">
-						<h3 class="card__subtitle">Refurbishers</h3>
-						<p class="card__text">
-							Recycling Electric batteries work with business owners all
-							over the US.
-						</p>
-						<a href="" class="card__link card__link_up"></a>
-					</div>
-				</div>
-				<div class="cards__item card">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/weWork5.svg" alt="" class="card__icon" />
-					<div class="card__content">
-						<h3 class="card__subtitle">Recycling Facilities</h3>
-						<p class="card__text">
-							Recycling Electric batteries work with business owners all
-							over the US.
-						</p>
-						<a href="" class="card__link card__link_up"></a>
-					</div>
-				</div>
+				<?php
+				$args = array(
+					'post_type' => 'post',
+					'category_name' => 'weworkwith',
+					'posts_per_page' => -1,
+					'orderby' => 'modified', // Сортировка по дате создания
+					'order' => 'ASC', // Порядок сортировки: DESC (убывание) или ASC (возрастание)
+				);
+
+				$query = new WP_Query($args);
+
+				if ($query->have_posts()) :
+					$count = 0; // Счетчик элементов
+					$left_column_open = false; // Флаг для отслеживания открытой левой колонки
+					$right_column_open = false; // Флаг для отслеживания открытой правой колонки
+					while ($query->have_posts()) : $query->the_post();
+						if ($count < 2) {
+							// Открываем левую колонку, если она еще не открыта
+							if (!$left_column_open) {
+								echo '<div class="cards__column">';
+								$left_column_open = true;
+							}
+							// Элементы для левой колонки
+				?>
+							<div class="cards__item card">
+								<img src="<?php the_field('weworkwith_icon'); ?>" alt="<?php echo get_field('weworkwith_title'); ?>" class="card__icon" />
+								<div class="card__content">
+									<h3 class="card__subtitle"><?php the_title(); ?></h3>
+									<div class="card__text">
+										<?php the_content(); ?>
+									</div>
+									<a href="templatePage.html" class="card__link"></a>
+								</div>
+							</div>
+						<?php
+						} else {
+							// Закрываем левую колонку перед элементами правой колонки
+							if ($left_column_open) {
+								echo '</div>';
+								$left_column_open = false;
+							}
+							// Открываем левую колонку, если она еще не открыта
+							if (!$right_column_open) {
+								echo '<div class="cards__column">';
+								$right_column_open = true;
+							}
+							// Элементы для правой колонки
+						?>
+							<div class="cards__item card">
+								<img src="<?php the_field('weworkwith_icon'); ?>" alt="<?php echo get_field('weworkwith_title'); ?>" class="card__icon" />
+								<div class="card__content">
+									<h3 class="card__subtitle"><?php the_title(); ?></h3>
+									<div class="card__text">
+										<?php the_content(); ?>
+									</div>
+									<a href="templatePage.html" class="card__link"></a>
+								</div>
+							</div>
+				<?php
+						}
+						$count++;
+					endwhile;
+					// Закрываем открытую левую колонку, если она еще открыта
+					if ($left_column_open) {
+						echo '</div>';
+					}
+					// Закрываем правую колонку перед элементами правой колонки
+					if ($right_column_open) {
+						echo '</div>';
+						$right_column_open = false;
+					}
+				endif;
+				wp_reset_postdata();
+				?>
 			</div>
 		</div>
 	</section>
 </main>
+<?php
+get_footer();
+?>

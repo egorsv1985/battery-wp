@@ -34,16 +34,28 @@ function my_theme_customize_register($wp_customize)
 		'priority' => 200,
 	));
 
-	// Добавляем поле "Логотип"
-	$wp_customize->add_setting('custom_logo', array(
+	// Добавляем поле "Логотип header"
+	$wp_customize->add_setting('header_logo', array(
 		'default' => '',
 		'sanitize_callback' => 'absint',
 	));
 
-	$wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'custom_logo_control', array(
-		'label' => 'Логотип',
+	$wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'header_logo_control', array(
+		'label' => 'LOGO header',
 		'section' => 'my_theme_settings',
-		'settings' => 'custom_logo',
+		'settings' => 'header_logo',
+		'mime_type' => 'image',
+	)));
+	// Добавляем поле "Логотип footer"
+	$wp_customize->add_setting('footer_logo', array(
+		'default' => '',
+		'sanitize_callback' => 'absint',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'footer_logo_control', array(
+		'label' => 'LOGO footer',
+		'section' => 'my_theme_settings',
+		'settings' => 'footer_logo',
 		'mime_type' => 'image',
 	)));
 
@@ -72,15 +84,15 @@ function my_theme_customize_register($wp_customize)
 		'type' => 'text',
 	));
 	// Добавляем поле "Адрес"
-	$wp_customize->add_setting('adress', array(
+	$wp_customize->add_setting('address', array(
 		'default' => '',
 		'sanitize_callback' => 'sanitize_text_field',
 	));
 
-	$wp_customize->add_control('adress_control', array(
-		'label' => 'Адрес',
+	$wp_customize->add_control('address_control', array(
+		'label' => 'address',
 		'section' => 'my_theme_settings',
-		'settings' => 'adress',
+		'settings' => 'address',
 		'type' => 'text',
 	));
 }
@@ -90,10 +102,12 @@ function register_custom_menus()
 	register_nav_menus(
 		array(
 			'primary-menu' => __('Primary Menu'),
+			'footer-menu' => 'Footer menu',
 		)
 	);
 }
 add_action('init', 'register_custom_menus');
+
 function custom_menu_classes($classes, $item)
 {
 	// Добавляем кастомные классы для родительского элемента меню
