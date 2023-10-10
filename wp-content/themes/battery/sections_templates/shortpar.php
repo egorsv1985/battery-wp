@@ -27,5 +27,5 @@
 		wp_reset_postdata();
 		?>
 	</div>
-	<img src="<?php echo get_template_directory_uri(); ?>/img/icons/back_circle2.svg" alt="" class="shortpar__backimg" />
+	<img src="<?php echo get_template_directory_uri(); ?>/img/icons/back_circle2.svg" alt="<?php echo the_title(); ?>" class="shortpar__backimg" />
 </section>

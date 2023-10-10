@@ -37,7 +37,26 @@
 				<?php echo get_field('ustobeus_text'); ?>
 			</div>
 			<div class="ustobeus__button button button_fill">
-				<a href="aboutUs.html" class="button__text">Learn more</a>
+				<?php
+				$args = array(
+					'post_type' => 'page', // Указываем тип поста как 'page'
+					'post_status' => 'publish', // Указываем статус 'publish'
+					'name' => 'about-us', // Укажите ярлык (slug) страницы
+				);
+
+				$contact_query = new WP_Query($args);
+
+				if ($contact_query->have_posts()) {
+					while ($contact_query->have_posts()) {
+						$contact_query->the_post();
+						$contact_url = get_permalink();
+				?>
+						<a href="<?php echo esc_url($contact_url); ?>" class="button__text">Learn more</a>
+				<?php
+					}
+					wp_reset_postdata(); // Сбрасываем запрос
+				}
+				?>
 			</div>
 		</div>
 	</div>

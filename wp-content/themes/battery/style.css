@@ -35,7 +35,9 @@ body {
 body {
   overflow-x: hidden;
 }
-ul li {
+.header ul li, 
+.footer ul li 
+{
   list-style: none;
 }
 
@@ -1532,6 +1534,9 @@ textarea {
 }
 
 .battery-list {
+/* display: flex; */
+/* flex-wrap: wrap; */
+/* justify-content: space-between; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   -moz-column-gap: 3rem;
@@ -1541,13 +1546,15 @@ textarea {
 @media (max-width: 850px) {
   .battery-list {
     grid-template-columns: repeat(1, auto);
-    row-gap: 0rem;
+    row-gap: 1rem;
   }
 }
 .battery-list__item {
+  /* flex-basis: calc(33.33% - 10px); */
+  /* flex-grow: 1; */
   max-width: 35rem;
-  height: -moz-fit-content;
-  height: fit-content;
+  /* height: -moz-fit-content; */
+  /* height: fit-content; */
   background-color: #ffffff;
   border-radius: 2px;
   padding: 1rem 0 1rem 2rem;
@@ -1555,8 +1562,9 @@ textarea {
   font-weight: 500;
   list-style-type: none;
 }
-@media (max-width: 850px) {
+@media (max-width: 1110px) {
   .battery-list__item {
+    /* flex-basis: 50%; */
     max-width: inherit;
   }
 }
@@ -1934,7 +1942,7 @@ textarea {
 .battery-list__item {
   background-color: #ffffff;
   color: #1b1b1b;
-  margin: 2rem 0;
+  /* margin: 2rem 0; */
   border-radius: 0.2rem;
 }
 .battery-list__subtitle {
@@ -1942,13 +1950,14 @@ textarea {
   max-width: 53rem;
 }
 .battery-list__header {
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   min-height: 3.5rem;
   font-size: 2.4rem;
   font-weight: 500;
   display: flex;
   align-items: center;
   position: relative;
+  text-transform: capitalize;
 }
 .battery-list__body {
   max-height: 0;
@@ -1960,17 +1969,17 @@ textarea {
   font-size: 2rem;
   line-height: 150%;
 }
-.battery-list__p {
-  max-width: 20rem;
+._open p {
+  max-width: 24rem;
 }
 @media (max-width: 850px) {
-  .battery-list__p {
+  ._open p {
     max-width: -moz-max-content;
     max-width: max-content;
   }
 }
 @media (max-width: 460px) {
-  .battery-list__p {
+  ._open p {
     max-width: 20rem;
   }
 }
@@ -1981,13 +1990,21 @@ textarea {
 
 ._open {
   cursor: pointer;
+  position: relative;
 }
 ._open::after {
-  content: url("./img/icons/arrow_down.svg");
-  font-size: 2rem;
-  position: absolute;
-  right: 3rem;
+    content: "";
+    display: block;
+    background: url("./img/icons/arrow_down.svg") no-repeat center / cover;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .5s ease-in-out;
 }
 ._open.active::after {
-  content: url("./img/icons/arrow_up.svg");
+  transform: rotate(180deg) translateY(50%);
 } /*# sourceMappingURL=style.css.map */
