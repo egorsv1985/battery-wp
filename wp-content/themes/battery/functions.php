@@ -16,6 +16,7 @@ function metexim_custom_enqueue_scripts()
 	wp_enqueue_script('popper', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js', array('jquery'), null, false);
 	// wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js', array('jquery'), null, false);
 	wp_enqueue_script('parallax', 'https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js', array('jquery'), null, false);
+	wp_enqueue_script('inputmask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js', array('jquery'), null, false);
 	wp_enqueue_script('app', get_stylesheet_directory_uri() . '/js/app.js');
 	// wp_enqueue_script('scroll', get_stylesheet_directory_uri() . '/js/scroll.js');
 	// wp_enqueue_script('burgerMenu', get_stylesheet_directory_uri() . '/js/burgerMenu.js');
@@ -130,5 +131,19 @@ function allow_svg_upload($mimes)
 	return $mimes;
 }
 add_filter('upload_mimes', 'allow_svg_upload');
+
+
+// Отключаем автоматическую вставку абзацев <p> вокруг формы Contact Form 7
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+function custom_wpcf7_form_elements($form)
+{
+    // Удалите или измените ненужные вам теги формы
+    $form = str_replace('<br />', '', $form); // Удалить автоматически добавляемые теги <br />
+    $form = str_replace('<span class="wpcf7-form-control-wrap">', '', $form); // Удалить открывающий тег <span>
+    $form = str_replace('</span>', '', $form); // Удалить закрывающий тег </span>
+    return $form;
+}
+
 
 

@@ -1,9 +1,11 @@
-<?php
+<?
 global $template;
 
 if (strpos($template, 'template.php') !== false) {
 	// Если текущий шаблон содержит "template.php"
 	echo '<section class="choose _margin-up scroll">';
+} elseif (strpos($template, 'battery_types.php') !== false) {
+	echo '<section class="choose choose_white scroll">';
 } else {
 	// Иначе (для всех остальных шаблонов)
 	echo '<section class="choose scroll">';
@@ -25,7 +27,7 @@ if (strpos($template, 'template.php') !== false) {
 				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/big_circle.svg" alt="" class="graph__bigcircle" />
 				<img src="<?php echo get_template_directory_uri(); ?>/img/icons/small_circle.svg" alt="" class="graph__smcircle _sm2" />
 			</div>
-			<img src="./img/small_circle.svg" alt="" class="graph__smcircle _sm3" />
+			<img src="<?php echo get_template_directory_uri(); ?>/img/icons/small_circle.svg" alt="" class="graph__smcircle _sm3" />
 		</div>
 		<div class="variants__items">
 			<?php

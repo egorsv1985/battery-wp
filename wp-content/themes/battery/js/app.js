@@ -90,3 +90,35 @@ document.addEventListener("DOMContentLoaded", function () {
     checkBlocksVisibility();
   });
 });
+jQuery(document).ready(function () {
+  // Получаем все элементы input с атрибутом type="tel"
+    var telInputs = document.querySelectorAll('input[type="tel"]');
+
+    // Настраиваем маску для номера телефона
+    jQuery(telInputs).inputmask({
+        mask: ["+7 (999) 999 99 99", "8 (999) 999 99 99"],
+        greedy: false,
+        placeholder: "_",
+    });
+    $('form.wpcf7-form').on('submit', function (event) {
+      event.preventDefault(); // Предотвращаем стандартную отправку формы
+
+      var form = $(this);
+      var formData = new FormData(form[0]);
+
+      $.ajax({
+          type: form.attr('method'),
+          url: form.attr('action'),
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+              // Обработка успешной отправки формы. Здесь можно показать сообщение об успешной отправке или выполнить другие действия.
+              // Например, можно использовать модальное окно.
+          }
+      });
+
+      return false;
+  });
+
+});
