@@ -1,16 +1,17 @@
 <footer class="footer">
 	<div class="footer__container">
 		<div class="footer__main-content">
-			<? if (get_theme_mod('custom_logo')) : ?>
-				<a href="<? echo esc_url(home_url('/')); ?>" class="header__logo logo">
-					<img src="<? echo esc_url(wp_get_attachment_url(get_theme_mod('custom_logo'))); ?>" alt="<? bloginfo('name'); ?>" class="logo__img">
+			<?php if (get_theme_mod('footer_logo')) : ?>
+				<a href="<?php echo esc_url(home_url('/')); ?>" class="">
+					<img src="<?php echo esc_url(wp_get_attachment_url(get_theme_mod('footer_logo'))); ?>" alt="<?php bloginfo('name'); ?>" class="">
 					<p class="logo__transcript">Recycling Electric Batteries</p>
 				</a>
-			<? else : ?>
-				<a href="<? echo esc_url(home_url('/')); ?>" class="header__logo logo ">
+			<?php else : ?>
+				<a href="<?php echo esc_url(home_url('/')); ?>" class="">
 					<p class="logo__transcript">Recycling Electric Batteries</p>
 				</a>
-			<? endif; ?>
+			<?php endif; ?>
+
 			<!-- <a href="./" class="footer__logo logo">
             <img src="../img/logo_2.svg" alt="" class="logo" />
             <p class="logo__transcript">Recycling Electric Batteries</p>

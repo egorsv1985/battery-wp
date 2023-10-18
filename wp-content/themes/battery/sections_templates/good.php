@@ -24,7 +24,7 @@
 					<div class="good-answers__item good-answer">
 						<div class="good-answer__subtitle"><?php the_title(); ?></div>
 						<div class="good-answer__text"><?php the_content(); ?></div>
-						<a href="<?php the_permalink(); ?>" class="good-answer__link"></a>
+						<a href="<?php the_field('good_link'); ?>" title="<?php the_title(); ?>" class="good-answer__link"></a>
 					</div>
 			<?php
 				endwhile;

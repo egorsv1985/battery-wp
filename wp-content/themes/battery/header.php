@@ -13,19 +13,17 @@
 </head>
 
 <body>
-
 	<header class="header">
 		<div class="header__container">
-			<? if (get_theme_mod('custom_logo')) : ?>
-				<a href="<? echo esc_url(home_url('/')); ?>" class="header__logo logo">
-					<img src="<? echo esc_url(wp_get_attachment_url(get_theme_mod('custom_logo'))); ?>" alt="<? bloginfo('name'); ?>" class="logo__img">
+			<?php if (get_theme_mod('header_logo')) : ?>
+				<a href="<?php echo esc_url(home_url('/')); ?>" class="">
+					<img src="<?php echo esc_url(wp_get_attachment_url(get_theme_mod('header_logo'))); ?>" alt="<?php bloginfo('name'); ?>" class="">
 				</a>
-			<? else : ?>
-				<a href="<? echo esc_url(home_url('/')); ?>" class="header__logo logo ">
-					<? bloginfo('name'); ?>
+			<?php else : ?>
+				<a href="<?php echo esc_url(home_url('/')); ?>" class=" ">
+					<?php bloginfo('name'); ?>
 				</a>
-			<? endif; ?>
-
+			<?php endif; ?>
 			<nav class="header__nav nav">
 				<?php
 				// Определяем, какое меню использовать (по его названию)
@@ -35,34 +33,29 @@
 						'echo' => false, // Не выводить меню на экран, только получить его HTML
 					)
 				);
-
 				// Выводим меню
 				echo $primary_menu;
 				?>
 			</nav>
-
 			<div class="header__button button button_fill">
-			<?php
-		$args = array(
-			'post_type' => 'page', // Указываем тип поста как 'page'
-			'post_status' => 'publish', // Указываем статус 'publish'
-			'name' => 'contact-us', // Укажите ярлык (slug) страницы
-		);
-
-		$contact_query = new WP_Query($args);
-
-		if ($contact_query->have_posts()) {
-			while ($contact_query->have_posts()) {
-				$contact_query->the_post();
-				$contact_url = get_permalink();
-		?>
-				<a href="<?php echo esc_url($contact_url); ?>" class="button__text">General Inquiries</a>
-		<?php
-			}
-			wp_reset_postdata(); // Сбрасываем запрос
-		}
-		?>
-				
+				<?php
+				$args = array(
+					'post_type' => 'page', // Указываем тип поста как 'page'
+					'post_status' => 'publish', // Указываем статус 'publish'
+					'name' => 'contact-us', // Укажите ярлык (slug) страницы
+				);
+				$contact_query = new WP_Query($args);
+				if ($contact_query->have_posts()) {
+					while ($contact_query->have_posts()) {
+						$contact_query->the_post();
+						$contact_url = get_permalink();
+				?>
+						<a href="<?php echo esc_url($contact_url); ?>" class="button__text">General Inquiries</a>
+				<?php
+					}
+					wp_reset_postdata(); // Сбрасываем запрос
+				}
+				?>
 			</div>
 			<div class="wrapper">
 				<div class="burgermenu">
@@ -79,7 +72,6 @@
 								'echo' => false, // Не выводить меню на экран, только получить его HTML
 							)
 						);
-
 						// Выводим меню
 						echo $primary_menu;
 						?>
@@ -87,10 +79,8 @@
 							<a href="contact.html" class="button__text">General Inquiries</a>
 						</div>
 					</nav>
-
 				</div>
 			</div>
 		</div>
 	</header>
-
 	<div class="menu-background"></div>

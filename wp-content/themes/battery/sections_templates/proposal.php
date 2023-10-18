@@ -1,7 +1,7 @@
 <?php
 global $template;
 
-if (strpos($template, 'template.php') !== false) {
+if (is_page('contact-us')) {
 	// Если текущий шаблон содержит "contact.php"
 	echo '<section class="proposal _not-mt">';
 } else {

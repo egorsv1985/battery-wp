@@ -256,7 +256,7 @@ textarea {
     display: flex;
     row-gap: 3rem;
     align-items: flex-start;
-    height: 80%;
+    height: 100%;
     flex-direction: column;
   }
   #menu-primary-menu-1 .nav__uncover::after {
@@ -1641,7 +1641,7 @@ textarea {
 
 .input_small,
 .wpcf7-form-control-wrap {
-  width: 26.8rem;
+  width: 28.8rem;
 }
 .input_big,
 [data-name="weight"],
@@ -1685,7 +1685,7 @@ textarea {
   opacity: 0.8;
   color: #ffffff;
   width: 100%;
-  padding-bottom: 2rem;
+  /* padding-bottom: 2rem; */
 }
 .form__company {
   grid-column: 2;
@@ -1878,6 +1878,7 @@ textarea {
 }
 .appeal__text {
   padding-bottom: 5rem;
+  text-transform: capitalize;
 }
 
 .accordion-item {
@@ -2008,3 +2009,6 @@ textarea {
 ._open.active::after {
   transform: rotate(180deg) translateY(50%);
 } /*# sourceMappingURL=style.css.map */
+.order{
+  order: 1;
+}

@@ -1,11 +1,4 @@
-<?
-/*
-Template Name: HOME
-*/
-
-get_header(); ?>
-<main class="main">
-	<section class="screen1">
+<section class="screen1">
 		<div class="screen1__container">
 			<div class="screen1__wrapper">
 				<h1 class="screen1__maintitle"><?php echo get_field('screen_title'); ?> </h1>
@@ -23,7 +16,7 @@ get_header(); ?>
 							$contact_query->the_post();
 							$contact_url = get_permalink();
 					?>
-							<a href="<?php echo esc_url($contact_url); ?>" class="button__text">contact-us</a>
+							<a href="<?php echo esc_url($contact_url); ?>" class="button__text">Contact us</a>
 					<?php
 						}
 						wp_reset_postdata(); // Сбрасываем запрос
@@ -42,12 +35,3 @@ get_header(); ?>
 			</div>
 		</div>
 	</section>
-	<?php get_template_part('sections_templates/good'); ?>
-	<?php get_template_part('sections_templates/goals'); ?>
-	<?php get_template_part('sections_templates/proposal'); ?>
-	<?php get_template_part('sections_templates/ustobeus'); ?>
-	<?php get_template_part('sections_templates/weworkwith'); ?>
-</main>
-<?
-get_footer();
-?>
