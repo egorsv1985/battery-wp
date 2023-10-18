@@ -23,7 +23,7 @@
 				while ($query->have_posts()) : $query->the_post();
 					$custom_link = get_field('good_link'); // Получение значения пользовательского поля 'good_link'
 			?>
-					<div class="good-answers__item good-answer">
+					<div class="good-answers__item">
 						<div class="good-answer__subtitle"><?php the_title(); ?></div>
 						<div class="good-answer__text"><?php the_content(); ?></div>
 						<?php if ($custom_link) : ?>

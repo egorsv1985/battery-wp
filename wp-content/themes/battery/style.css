@@ -303,13 +303,11 @@ textarea {
   }
 }
 .sub-menu li {
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   color: #ffffff;
 }
-.sub-menu a {
+.nav-burger .sub-menu li a {
   font-size: 1.6rem;
-  color: #1b1b1b;
-  text-decoration: none;
   transition: all 0.3s;
 }
 @media (max-width: 1000px) {
@@ -569,11 +567,13 @@ textarea {
   color: #ffffff;
   transition: all 0.3s ease;
 }
-.list__item {
+.list__item,
+.sub-menu li {
   position: relative;
   padding-left: 1rem;
 }
-.list__item::before {
+.list__item::before,
+.sub-menu li::before {
   content: "";
   display: block;
   background-color: #fff;
@@ -785,17 +785,26 @@ textarea {
   background-color: #ffffff;
   padding: 3.5rem 6.5rem 1.8rem 6.5rem;
   border-radius: 2px;
-  display: flex;
-  -moz-column-gap: 3rem;
-  column-gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 0rem;
+  column-gap: 0rem;
   justify-content: space-between;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
+.good-answers__item{
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / 4;
+}
 @media (max-width: 550px) {
   .good-answers {
-    flex-direction: column;
-    row-gap: 3rem;
+    grid-template-columns: 1fr;
     padding: 3.5rem 2rem;
+  }
+  .good-answers__item{   
+    
+    /* grid-row: 1 / 3; */
   }
 }
 
