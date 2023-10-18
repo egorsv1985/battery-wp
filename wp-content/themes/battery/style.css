@@ -407,7 +407,7 @@ textarea {
   height: 70px;
   background-color: rgba(255, 255, 255, 0.7);
   position: absolute;
-  left: -70px;
+  left: -80px;
   top: 25px;
   border-radius: 10rem;
 }
@@ -423,7 +423,7 @@ textarea {
   top: 50%;
   left: 50%;
   margin-left: -25px;
-  margin-top: -4px;
+  margin-top: -3px;
   width: 50px;
   height: 3px;
   background-color: #394c60;
@@ -467,7 +467,7 @@ textarea {
   width: 100vw;
   background: #000;
   opacity: 0.3;
-  z-index: 0;
+  z-index: 1;
   display: none;
 }
 
@@ -859,8 +859,11 @@ textarea {
   max-width: 25.5rem;
   text-align: center;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.item-icon__icon {
+.item-icons__icon {
   padding-bottom: 3rem;
 }
 .item-icon__subtitle {
@@ -1454,6 +1457,10 @@ textarea {
     grid-template: repeat(2, auto) / auto;
     row-gap: 3rem;
   }
+  [class*="__text"] {
+    font-size: 1.6rem;
+   
+  }
 }
 .types-mainscreen__attention {
   margin-top: 1.5rem;
@@ -1586,6 +1593,9 @@ textarea {
   column-gap: 6rem;
 }
 @media (max-width: 1100px) {
+  .contact{
+    padding-top: 0;
+  }
   .contact__container {
     grid-template: repeat(2, auto) / auto;
     row-gap: 5rem;
@@ -1624,9 +1634,13 @@ textarea {
   padding-top: 6rem;
 }
 @media (max-width: 750px) {
+  .contact{
+    padding: 5rem 0;
+  }
   .contact__map {
     padding-top: 3rem;
   }
+
 }
 .contact__iframe {
   width: 38rem;
@@ -1685,7 +1699,7 @@ textarea {
   opacity: 0.8;
   color: #ffffff;
   width: 100%;
-  /* padding-bottom: 2rem; */
+  padding-bottom:0;
 }
 .form__company {
   grid-column: 2;
@@ -1716,6 +1730,9 @@ textarea {
   .form__company,
   .form__battery {
     display: block;
+  }
+  .form__text{
+    padding-bottom: 2rem;
   }
 }
 .form__select {

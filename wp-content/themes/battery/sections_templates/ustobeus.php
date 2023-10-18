@@ -69,11 +69,11 @@ if (is_page('about-us')) {
 
 		if ($contact_query->have_posts()) {
 			while ($contact_query->have_posts()) {
-				$contact_query->the_post();
-				$contact_url = get_permalink();
+				$contact_query->the_post();				
+				$custom_link = get_field('ustobeus_link'); // Получение значения пользовательского поля 'ustobeus_link'
 		?>
 
-				<a href="<?php echo esc_url($contact_url); ?>" class="button__text"><?php echo get_field('ustobeus_btn'); ?></a>
+				<a href="<?php echo esc_url($custom_link); ?>" class="button__text"><?php echo get_field('ustobeus_btn'); ?></a>
 		<?php
 			}
 			wp_reset_postdata(); // Сбрасываем запрос
