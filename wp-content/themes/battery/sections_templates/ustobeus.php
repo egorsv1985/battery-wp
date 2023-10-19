@@ -58,27 +58,7 @@ if (is_page('about-us')) {
 		<?php echo get_field('ustobeus_text'); ?>
 	</div>
 	<div class="ustobeus__button button button_fill">
-		<?php
-		$args = array(
-			'post_type' => 'page', // Указываем тип поста как 'page'
-			'post_status' => 'publish', // Указываем статус 'publish'
-			'name' => 'about-us', // Укажите ярлык (slug) страницы
-		);
-
-		$contact_query = new WP_Query($args);
-
-		if ($contact_query->have_posts()) {
-			while ($contact_query->have_posts()) {
-				$contact_query->the_post();				
-				$custom_link = get_field('ustobeus_link'); // Получение значения пользовательского поля 'ustobeus_link'
-		?>
-
-				<a href="<?php echo esc_url($custom_link); ?>" class="button__text"><?php echo get_field('ustobeus_btn'); ?></a>
-		<?php
-			}
-			wp_reset_postdata(); // Сбрасываем запрос
-		}
-		?>
+		<a href="<?php echo get_field('ustobeus_link'); ?>" class="button__text">3423434<?php echo get_field('ustobeus_btn'); ?></a>
 	</div>
 </div>
 </div>
