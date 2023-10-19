@@ -27,7 +27,17 @@ if (is_page('about-us')) {
 	</div>
 </div>
 <div class="ustobeus__content">
-	<h2 class="ustobeus__title"><?php echo get_field('ustobeus_title'); ?></h2>
+<?php
+	global $template;
+
+	if (is_page('about-us')) {
+
+		echo '<h2 class="ustobeus__title--big"><?php echo get_field('ustobeus_title'); ?></h2>';
+	} else {
+
+		echo '<h2 class="ustobeus__title"><?php echo get_field('ustobeus_title'); ?></h2>';
+	}
+	?>
 	<div class="ustobeus__facts">
 		<?php
 		$args = array(
@@ -58,7 +68,7 @@ if (is_page('about-us')) {
 		<?php echo get_field('ustobeus_text'); ?>
 	</div>
 	<div class="ustobeus__button button button_fill">
-		<a href="<?php echo get_field('ustobeus_link'); ?>" class="button__text">3423434<?php echo get_field('ustobeus_btn'); ?></a>
+		<a href="<?php echo get_field('ustobeus_link'); ?>" class="button__text"><?php echo get_field('ustobeus_btn'); ?></a>
 	</div>
 </div>
 </div>

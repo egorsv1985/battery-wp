@@ -1,4 +1,4 @@
-<section class="good scroll">
+<section class="good">
 	<div class="good__container">
 		<div class="good__item good-question">
 			<h2 class="good-question__subtitle">
