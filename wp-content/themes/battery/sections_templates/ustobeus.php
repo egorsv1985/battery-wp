@@ -23,21 +23,11 @@ if (is_page('about-us')) {
 	}
 	?>
 	<div data-depth="0.6">
-		<img src="<?php echo get_template_directory_uri(); ?>/img/icons/new_planet.svg" alt="<?php echo get_field('proposal_title'); ?>" class="ustobeus__img" />
+		<img src="<?php echo get_template_directory_uri(); ?>/img/icons/planet_new.svg" alt="<?php echo get_field('proposal_title'); ?>" class="ustobeus__img" />
 	</div>
 </div>
 <div class="ustobeus__content">
-<?php
-	global $template;
-
-	if (is_page('about-us')) {
-
-		echo '<h2 class="ustobeus__title--big"><?php echo get_field('ustobeus_title'); ?></h2>';
-	} else {
-
-		echo '<h2 class="ustobeus__title"><?php echo get_field('ustobeus_title'); ?></h2>';
-	}
-	?>
+	<h2 class="ustobeus__title"><?php echo get_field('ustobeus_title'); ?></h2>
 	<div class="ustobeus__facts">
 		<?php
 		$args = array(
