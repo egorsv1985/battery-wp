@@ -50,7 +50,7 @@
 								<div class="card__text">
 									<?php the_content(); ?>
 								</div>
-								<a href="<?php the_permalink(); ?>" class="card__link"></a>
+								<a href="<?php echo esc_url(get_permalink()); ?>" title="<?php the_title(); ?>" class="card__link"></a>
 							</div>
 						</div>
 					<?php
@@ -74,7 +74,7 @@
 								<div class="card__text">
 									<?php the_content(); ?>
 								</div>
-								<a href="<?php the_permalink(); ?>" class="card__link"></a>
+								<a href="<?php echo esc_url(get_permalink()); ?>" title="<?php the_title(); ?>" class="card__link card__link_up"></a>
 							</div>
 						</div>
 			<?php
