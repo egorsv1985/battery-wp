@@ -138,12 +138,25 @@ add_filter('wpcf7_autop_or_not', '__return_false');
 
 function custom_wpcf7_form_elements($form)
 {
-    // Удалите или измените ненужные вам теги формы
-    $form = str_replace('<br />', '', $form); // Удалить автоматически добавляемые теги <br />
-    $form = str_replace('<span class="wpcf7-form-control-wrap">', '', $form); // Удалить открывающий тег <span>
-    $form = str_replace('</span>', '', $form); // Удалить закрывающий тег </span>
-    return $form;
+	// Удалите или измените ненужные вам теги формы
+	$form = str_replace('<br />', '', $form); // Удалить автоматически добавляемые теги <br />
+	$form = str_replace('<span class="wpcf7-form-control-wrap">', '', $form); // Удалить открывающий тег <span>
+	$form = str_replace('</span>', '', $form); // Удалить закрывающий тег </span>
+	return $form;
 }
 
 
 
+function custom_pagination()
+{
+	global $wp_query;
+
+	$big = 999999999; // need an unlikely integer
+
+	echo paginate_links(array(
+		'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+		'format' => '?paged=%#%',
+		'current' => max(1, get_query_var('paged')),
+		'total' => $wp_query->max_num_pages
+	));
+}

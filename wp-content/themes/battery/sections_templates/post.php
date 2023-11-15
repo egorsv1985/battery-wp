@@ -1,11 +1,18 @@
-<section class="post _not-mt">
+<section class="post ">
+	<div class="post__box-img" style="background: url(<?php the_field('img_new_large'); ?>) no-repeat center / cover;">
+
+
+	</div>
 	<div class="post__container">
 		<h1 class="post__title"><?php the_title(); ?></h1>
-		<p class="post__date">Date: <?php the_modified_date(); ?></p>
+		<p class="post__date"><?php the_modified_date(); ?></p>
 		<div class="post__content">
-			<?php the_content(); ?>
+			<div class="post__text">
+
+				<?php the_content(); ?>
+			</div>
 			<div class="sidebar">
-				<h2>Рекомендованные записи</h2>
+				<h2 class="sidebar__subtitle">Recommended</h2>
 
 				<?php
 				// Дополнительный запрос для рекомендованных записей (последних 3)
@@ -25,7 +32,7 @@
 						<article class="recommended__item">
 							<p class="recommended__date"> <?php the_modified_date(); ?></p>
 							<a href="<?php the_permalink(); ?>">
-								<h2 class="recommended__title"><?php the_title(); ?></h2>
+								<h2 class="recommended__text"><?php the_title(); ?></h2>
 							</a>
 						</article>
 				<?php
