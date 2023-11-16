@@ -8,7 +8,7 @@
 				'post_type' => 'post',
 				'category_name' => 'info',
 				'posts_per_page' => 4,
-				'paged' => get_query_var('paged') ? get_query_var('paged') : 1 // добавляем текущую страницу
+
 			);
 
 			$query = new WP_Query($args);
@@ -32,9 +32,28 @@
 			<?php
 				endwhile;
 
-				// Добавляем пагинацию
-				custom_pagination(); // используйте функцию, которую я предложил в предыдущем ответе
+				wp_pagenavi(array('query' => $query));
 
+
+				$args = array(
+					'screen_reader_text' => '&nbsp;',
+					'show_all'           => false,
+					'prev_next'          => true,
+					'prev_text'          => __('←'),
+					'next_text'          => __('→'),
+					'type'               => 'post',
+					'category_name' => 'info',
+					'add_args'           => false,
+					'add_fragment'       => '',
+					'end_size'     => 1,
+					'mid_size'     => 2,
+				);
+
+				$pagination = get_the_posts_pagination($args);
+
+				var_dump($pagination);
+
+				the_posts_pagination();
 			endif;
 			wp_reset_postdata();
 			?>
