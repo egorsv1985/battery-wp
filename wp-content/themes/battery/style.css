@@ -1064,7 +1064,7 @@ textarea {
   background: url(./img/icons/faq_background.svg) no-repeat right top;
 }
 .info__container {
-  padding-top: 10rem;
+  padding-block: 10rem;
 }
 .info__maintitle {
   color: #1b1b1b;
@@ -1121,6 +1121,54 @@ textarea {
 .news__item:hover .news__link::after {
   transform: rotate(-30deg) scale(1.2);
 }
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.prev,
+.next {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: url(./img/icons/arrow-next.svg) no-repeat center / 7px 13px;
+  border: 1.2px solid #394c60;
+  transition: all 0.3s ease-in-out;
+}
+.prev:hover,
+.next:hover {
+  background: #394c60 url(./img/icons/arrow-next-white.svg) no-repeat center /
+    7px 13px;
+}
+.page-numbers {
+}
+.page-numbers.current {
+  color: #fff;
+
+  font-size: 24px;
+
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  background-color: #394c60;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prev {
+  transform: rotate(180deg);
+}
+.prev.pagination-disabled,
+.next.pagination-disabled {
+  background: url(./img/icons/arrow-next.svg) no-repeat center / 7px 13px;
+  opacity: 0.4;
+}
+
 .post {
   background-color: rgba(164, 184, 193, 0.15);
 
@@ -1178,7 +1226,8 @@ textarea {
   background-color: #fff;
   padding: 4rem;
 }
-.post__text p {
+.post__text p,
+.post__text ul {
   margin-bottom: 2rem;
 }
 .sidebar {
