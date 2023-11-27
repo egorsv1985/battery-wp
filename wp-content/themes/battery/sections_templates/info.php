@@ -9,7 +9,7 @@
 			$args = array(
 				'post_type'      => 'post',
 				'category_name'  => 'info',
-				'posts_per_page' => 1,
+				'posts_per_page' => -1,
 				'paged'          => $paged,
 			);
 
@@ -31,32 +31,34 @@
 						</a>
 					</article>
 				<?php
-				endwhile; ?>
+				endwhile;
+				wp_reset_postdata();
+				?>
+		</div>
 
-				<div class="pagination">
-					<?php
-					echo paginate_links(array(
-						'base'               => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-						'format'             => '?paged=%#%',
-						'current'            => max(1, get_query_var('paged')),
-						'total'              => $query->max_num_pages,
-						'prev_text'          => __('>'),
-						'next_text'          => __('<'),
-						'type'               => 'list',
-						'end_size'           => 1,
-						'mid_size'           => 1,
-					));
-					?>
-				</div>
+		<div class="pagination">
+			<?php
+				$total_pages = $query->max_num_pages;
 
+				// Показываем стрелку "назад" всегда, но делаем ее отключенной на первой странице
+				if (get_previous_posts_link()) {
+					echo '<a class="prev page-numbers" href="' . esc_url(get_previous_posts_page_link()) . '"></a>';
+				} else {
+					echo '<a class="prev page-numbers pagination-disabled"></a>';
+				}
 
+				// Выводим текущую страницу
+				echo '<span class="current page-numbers">' . max(1, get_query_var('paged')) . '</span>';
 
-
-
-			<? endif;
-
-			wp_reset_postdata();
+				// Показываем стрелку "вперед" и делаем ее отключенной на последней странице
+				if ($paged < $total_pages) {
+					echo '<a class="next page-numbers" href="' . esc_url(get_next_posts_page_link()) . '"></a>';
+				} else {
+					echo '<a class="next page-numbers pagination-disabled"></a>';
+				}
 			?>
 		</div>
+
+	<?php endif; ?>
 	</div>
 </section>
