@@ -89,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     checkBlocksVisibility();
   });
+  function onSubmit(token) {
+    document.getElementById("demo-form").submit();
+  }
   jQuery(document).ready(function () {
     // Получаем все элементы input с атрибутом type="tel"
     var telInputs = document.querySelectorAll('input[type="tel"]');
@@ -99,13 +102,13 @@ document.addEventListener("DOMContentLoaded", function () {
       greedy: false,
       placeholder: "_",
     });
-    $("form.wpcf7-form").on("submit", function (event) {
+    jQuery("form.wpcf7-form").on("submit", function (event) {
       event.preventDefault(); // Предотвращаем стандартную отправку формы
 
       var form = $(this);
       var formData = new FormData(form[0]);
 
-      $.ajax({
+      jQuery.ajax({
         type: form.attr("method"),
         url: form.attr("action"),
         data: formData,

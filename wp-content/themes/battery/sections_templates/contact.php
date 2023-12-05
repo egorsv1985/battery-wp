@@ -34,6 +34,8 @@
 		<div class="contact__form form">
 			<h2 class="form__title">get in touch</h2>
 			<?php echo do_shortcode('[contact-form-7 id="fcf2afc" title="contact" class="form__fields" locale="en-US"]'); ?>
+
+
 		</div>
 	</div>
 </section>

@@ -2067,8 +2067,11 @@ textarea {
   background-color: #394c60;
   color: #ffffff;
   font: 500 1.8rem "Roboto";
+  margin-top: 20px;
 }
-
+iframe[title="reCAPTCHA"] {
+  width: 100% !important;
+}
 ._not-mt {
   margin-top: 0;
 }

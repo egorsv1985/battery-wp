@@ -17,6 +17,7 @@ function metexim_custom_enqueue_scripts()
 	// wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js', array('jquery'), null, false);
 	wp_enqueue_script('parallax', 'https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js', array('jquery'), null, false);
 	wp_enqueue_script('inputmask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js', array('jquery'), null, false);
+	wp_enqueue_script('recaptcha', 'https://www.google.com/recaptcha/api.js', array('jquery'), null, false);
 	wp_enqueue_script('app', get_stylesheet_directory_uri() . '/js/app.js');
 	// wp_enqueue_script('scroll', get_stylesheet_directory_uri() . '/js/scroll.js');
 	// wp_enqueue_script('burgerMenu', get_stylesheet_directory_uri() . '/js/burgerMenu.js');
