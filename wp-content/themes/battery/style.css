@@ -1930,12 +1930,17 @@ textarea {
 }
 .contact__maintitle {
   color: #1b1b1b;
-  padding-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 .contact__item {
   display: flex;
   -moz-column-gap: 1rem;
   column-gap: 1rem;
+}
+.contact__item-time {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
 }
 .contact__text {
   color: #1b1b1b;

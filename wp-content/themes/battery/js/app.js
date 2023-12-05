@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Настраиваем маску для номера телефона
     jQuery(telInputs).inputmask({
-      mask: ["+7 (999) 999 99 99", "8 (999) 999 99 99"],
+      mask: ["+1 (999) 999 99 99", "8 (999) 999 99 99"],
       greedy: false,
       placeholder: "_",
     });
