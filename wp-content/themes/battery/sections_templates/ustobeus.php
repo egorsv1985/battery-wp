@@ -23,7 +23,7 @@ if (is_page('about-us')) {
 	}
 	?>
 	<div data-depth="0.6">
-		<img src="<?php echo get_template_directory_uri(); ?>/img/icons/planet_new.svg" alt="<?php echo get_field('proposal_title'); ?>" class="ustobeus__img" />
+		<img src="<?php echo get_template_directory_uri(); ?>/img/planet-new.png" alt="<?php echo get_field('proposal_title'); ?>" class="ustobeus__img" />
 	</div>
 </div>
 <div class="ustobeus__content">

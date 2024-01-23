@@ -19,8 +19,8 @@
 				<div class="contact__item-time">
 
 					<span class="contact__text">Business Hours </span>
-					<span class="contact__text">Mon-Fri 9:00am-5:00pm EST </span>
-					<span class="contact__text">Sat-Sun 9am-1pm EST </span>
+					<span class="contact__text">Mon-Fri 9:00AM-5:00PM EST </span>
+					<span class="contact__text">Sat-Sun 9AM-1PM EST </span>
 				</div>
 				<div class="contact__item">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/icons/black_mail.svg" alt="" class="contact__icon" />

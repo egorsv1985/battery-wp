@@ -1045,7 +1045,9 @@ textarea {
 }
 
 .weworkwith {
-	margin: 10rem 0;
+	padding: 10rem 0;
+	background-color: #ecf0f1;
+	margin-top: 0;
 }
 .weworkwith__title {
 	padding-bottom: 3rem;
@@ -1309,6 +1311,7 @@ textarea {
 	height: fit-content;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 	border: 1px solid #f4f4f4;
+	background-color: #fff;
 	display: flex;
 	flex-grow: 1;
 	align-items: flex-start;
